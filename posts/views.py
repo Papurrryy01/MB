@@ -31,3 +31,16 @@ class PostCreateView(CreateView): #get and post method
     #fields attribute allow us to control which elements to display on the form to. create a new object
     #the name of the fields have to match with the attributes of the model
     fields = ['title', 'subtitle', 'body']
+
+class PostUpdateView(UpdateView): #get and post method
+    # PostUpdateView is going to update an object in the Post table in the DB
+    template_name = 'posts/edit.html'
+    model = Post
+    fields = ['title', 'subtitle', 'body']
+
+class PostDeleteView(DeleteView): #get and post method
+    # PostDeleteView is going to delete an object in the Post table in the DB
+    template_name = 'posts/delete.html'
+    model = Post
+    context_object_name = 'post'
+    success_url = '/'  # Redirect to home page after deletion
